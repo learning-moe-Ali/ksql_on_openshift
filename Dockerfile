@@ -1,4 +1,11 @@
-FROM confluentinc/ksqldb-server:0.29.0
+ARG DOCKER_UPSTREAM_REGISTRY=''
+ARG DOCKER_UPSTREAM_TAG=7.5.0
+
+FROM ${DOCKER_UPSTREAM_REGISTRY}confluentinc/cp-base-new:${DOCKER_UPSTREAM_TAG}
+
+ARG PROJECT_VERSION
+ARG ARTIFACT_ID
+
 USER root
 
 # target directory must be one of the projects that ksql-run-class sets on the KSQL_CLASSPATH,
